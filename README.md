@@ -1,2 +1,4 @@
-# Cyber-Attack-Detection-in-a-Grid-Connected-system-in-RTDS-using-Modbus-Communication
-Cyber Attack Detection in a Grid-Connected  PV–Battery System Using RTDS, SEL-751  Relay, RTAC, and Modbus Communication
+1- read the pdf.
+2- goto the model(RTDS)
+3- Goto the code 
+4 configure the IP according to your system
