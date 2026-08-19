@@ -1,0 +1,35 @@
+from pydnp3 import opendnp3
+from pydnp3 import openpal
+from pydnp3 import asiodnp3
+
+GTNET_IP = "10.16.28.92"
+PORT = 20000
+
+# Create DNP manager
+manager = asiodnp3.DNP3Manager(
+    1,
+    asiodnp3.ConsoleLogger().Create()
+)
+
+# Create TCP client channel
+channel = manager.AddTCPClient(
+    "client",
+    opendnp3.levels.NORMAL,
+    asiodnp3.ChannelRetry(),
+    "0.0.0.0",
+    GTNET_IP,
+    PORT
+)
+
+stackConfig = asiodnp3.MasterStackConfig()
+
+master = channel.AddMaster(
+    "master",
+    None,
+    asiodnp3.DefaultMasterApplication(),
+    stackConfig
+)
+
+master.Enable()
+
+print("Connected to GTNET-DNP")
